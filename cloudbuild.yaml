@@ -1,0 +1,20 @@
+steps:
+- id: "clone kritis repo"
+  name: gcr.io/cloud-builders/git
+  args: ['clone', 'https://github.com/grafeas/kritis.git']
+## 
+- id: "build signer binary"
+  name: 'gcr.io/cloud-builders/go:debian'
+  args: ['build', '-o', 'out/signer', './cmd/kritis/signer']
+  env: ['PROJECT_ROOT=github.com/grafeas/kritis']
+  dir: 'kritis'
+##
+- id: "build signer image"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'europe-west1-docker.pkg.dev/prj-gitlab-runners-prod/kritis-signer/kritis-signer:v1', '.']
+##
+- id: "publish signer image"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'europe-west1-docker.pkg.dev/prj-gitlab-runners-prod/kritis-signer/kritis-signer:v1']
+options:
+  logging: CLOUD_LOGGING_ONLY
