@@ -1,4 +1,4 @@
-FROM gcr.io/google-appengine/debian10:latest
+FROM gcr.io/google-appengine/debian11:latest
 COPY kritis/out/signer /kritis/signer
 ENV HOME /root
 ENV USER /root
