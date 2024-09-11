@@ -15,6 +15,6 @@ steps:
 ##
 - id: "publish signer image"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/cool-lambda-430915-g2/test-repo/signer-binary:v1:v1']
+  args: ['push', 'us-central1-docker.pkg.dev/cool-lambda-430915-g2/test-repo/signer-binary:v1']
 options:
   logging: CLOUD_LOGGING_ONLY
