@@ -11,10 +11,10 @@ steps:
 ##
 - id: "build signer image"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'europe-west1-docker.pkg.dev/prj-gitlab-runners-prod/kritis-signer/kritis-signer:v1', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/cool-lambda-430915-g2/test-repo/signer-binary:v1', '.']
 ##
 - id: "publish signer image"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'europe-west1-docker.pkg.dev/prj-gitlab-runners-prod/kritis-signer/kritis-signer:v1']
+  args: ['push', 'us-central1-docker.pkg.dev/cool-lambda-430915-g2/test-repo/signer-binary:v1:v1']
 options:
   logging: CLOUD_LOGGING_ONLY
